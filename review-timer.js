@@ -19,6 +19,7 @@ function updateTimeText(remainingSeconds) {
 	if (remainingSeconds < 0) {
 		raw = "Die Zeit ist um.";
 		precise = "Die Zeit ist um.";
+		clearInterval(updateInterval);
 	} else {
 		var onlySeconds = remainingSeconds % 60;
 		var onlyMinutes = (remainingSeconds - onlySeconds) / 60;
@@ -68,7 +69,7 @@ function setRemainingTime(newRemainingMS, running) {
 	updateRemainingTime();
 
 	if (running)
-		updateInterval = setInterval(updateRemainingTime, 100);
+		updateInterval = setInterval(updateRemainingTime, 200);
 }
 
 function play(){
